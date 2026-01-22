@@ -8,7 +8,7 @@ export const history = createBrowserHistory();
 function App() {
   return (
     <Router history={history}>
-      <Switch>
+       <Switch>
         <Route exact path="/" component={Home} />
       </Switch>
     </Router>
