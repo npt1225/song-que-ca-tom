@@ -15,7 +15,9 @@ export default function Home() {
                 <div className="container topbar bg-primary d-none d-lg-block">
                     <div className="d-flex justify-content-between">
                         <div className="top-info ps-2">
-                            <small className="me-3"><i className="fas fa-map-marker-alt me-2 text-secondary" />
+                            <small className="me-3"><i className="fas fa-map-marker-alt me-2 text-secondary" /><NavLink to="/gio-hang">
+124
+</NavLink></small>
                             <small className="me-3"><i className="fas fa-envelope me-2 text-secondary" /></small>
                         </div>
                         {/* <div className="top-link pe-2">
