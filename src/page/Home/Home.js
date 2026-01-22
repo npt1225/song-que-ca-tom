@@ -15,8 +15,8 @@ export default function Home() {
                 <div className="container topbar bg-primary d-none d-lg-block">
                     <div className="d-flex justify-content-between">
                         <div className="top-info ps-2">
-                            <small className="me-3"><i className="fas fa-map-marker-alt me-2 text-secondary" /> <NavLink exact to="/" className="text-white">123 Street, New York</NavLink></small>
-                            <small className="me-3"><i className="fas fa-envelope me-2 text-secondary" /><NavLink exact to="/" className="text-white">Email@Example.com</NavLink></small>
+                            <small className="me-3"><i className="fas fa-map-marker-alt me-2 text-secondary" />
+                            <small className="me-3"><i className="fas fa-envelope me-2 text-secondary" /></small>
                         </div>
                         {/* <div className="top-link pe-2">
                             <NavLink exact to="/" className="text-white"><small className="text-white mx-2">Privacy Policy</small>/</NavLink>
