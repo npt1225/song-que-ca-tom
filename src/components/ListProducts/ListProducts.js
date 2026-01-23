@@ -1,156 +1,88 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { layDanhSachProducts } from "../../redux/actions/ProductsAction";
+import { addToCart } from "../../redux/actions/cartAction";
 
-export default function ListProducts() {
-  const allProducts = [
-    {
-      tag: "Tôm",
-      name: "Tôm Càng Xanh",
-      sub: "Sông Hậu",
-      desc: "Loại 8 con/kg - Tươi sống 100%, càng to, thịt săn chắc ngọt",
-      price: "580K / KG",
-      note: "Loại 8 con / 1kg",
-      img: "img/songque/tom-cang-xanh.jpg",
-      slug: "tom-cang-xanh",
-    },
-    {
-      tag: "Cá",
-      name: "Cá Ngát",
-      sub: "Sông Hậu",
-      desc: "Từ 1.5kg trở lên - Thịt chắc, ngọt tự nhiên, đặc sản miền Tây",
-      price: "250K / KG",
-      note: "Cá từ 1.5kg trở lên",
-      img: "img/songque/ca-ngat.jpg",
-      slug: "ca-ngat",
-    },
-    {
-      tag: "Tép",
-      name: "Tép Bạc Đất",
-      sub: "Tươi sống",
-      desc: "Tép bạc đất chính gốc miền Tây, ngọt thanh, làm lẩu cực ngon",
-      price: "250K / KG",
-      note: "Hàng mới mỗi ngày",
-      img: "img/songque/tep-bac-dat.jpg",
-      slug: "tep-bac-dat",
-    },
-    {
-      tag: "Cá",
-      name: "Cá Rô Phi Thái",
-      sub: "Cá nước ngọt",
-      desc: "Cá rô phi thái sạch sẽ, thịt trắng ngon, ít xương",
-      price: "120K / KG",
-      note: "Cá từ 2.5kg trở lên",
-      img: "img/songque/ca-ro-phi-thai.jpg",
-      slug: "ca-ro-phi-thai",
-    },
-    {
-      tag: "Cá",
-      name: "Cá Bống Tượng",
-      sub: "Cá nước ngọt",
-      desc: "Từ 1.5kg trở lên - Thịt dày, dai ngọt, đặc sản sông nước",
-      price: "300K / KG",
-      note: "Cá từ 1.5kg đến 2kg",
-      img: "img/songque/ca-bong-tuong.jpg",
-      slug: "ca-bong-tuong",
-    },
-  ];
+export default function Menu() {
+  const dispatch = useDispatch();
 
-  const tom = allProducts.filter((p) => p.tag === "Tôm");
-  const ca = allProducts.filter((p) => p.tag === "Cá");
-  const tep = allProducts.filter((p) => p.tag === "Tép");
+  const { arrProducts } = useSelector(
+    (state) => state.ProductsReducer
+  );
 
-  const renderProducts = (products) => {
-    return products.map((product, index) => (
-      <ProductCard key={index} product={product} />
-    ));
-  };
+  useEffect(() => {
+    dispatch(layDanhSachProducts());
+  }, [dispatch]);
+
 
   return (
     <>
       {/* Menu Sông Quê */}
-      <div className="container-fluid fruite py-5 seafood-menu-wrap">
+      <div className="container-fluid service py-5 seafood-menu-section">
         <div className="container py-5">
-          <div className="tab-class text-center">
-            <div className="row g-4 align-items-center">
-              <div className="col-lg-5 text-start">
-                <h1 className="mb-2 seafood-title">Menu Sông Quê</h1>
-                <p className="mb-0 seafood-sub">
-                  Hải sản sông nước miền Tây chính gốc — tươi sống mỗi ngày
-                </p>
-              </div>
 
-              {/* Tabs */}
-              <div className="col-lg-7 text-lg-end text-start">
-                <ul className="nav nav-pills d-inline-flex text-center mb-0 mt-4 mt-lg-0 seafood-tabs">
-                  <li className="nav-item">
-                    <a
-                      className="d-flex m-2 py-2 rounded-pill active"
-                      data-bs-toggle="pill"
-                      href="#tab-all"
-                    >
-                      <span style={{ width: "120px" }}>Tất Cả</span>
-                    </a>
-                  </li>
+          {/* Title */}
+          <div className="text-center mx-auto mb-5" style={{ maxWidth: 650 }}>
+            <h1 className="display-6 seafood-menu-title">MENU Sông Quê</h1>
+            <p className="mb-0 seafood-menu-sub">
+              Hải sản & cá đồng tươi sống — đặt nhanh qua Zalo / Hotline
+            </p>
+          </div>
 
-                  <li className="nav-item">
-                    <a
-                      className="d-flex py-2 m-2 rounded-pill"
-                      data-bs-toggle="pill"
-                      href="#tab-tom"
-                    >
-                      <span style={{ width: "120px" }}>Tôm</span>
-                    </a>
-                  </li>
+          {/* Grid */}
+          <div className="row g-4 justify-content-center">
+            {arrProducts.map((item, index) => (
+              <div className="col-md-6 col-lg-4" key={index}>
+                <div
+                  className="seafood-menu-link"
+                >
+                  <div className="seafood-menu-card rounded-4 overflow-hidden position-relative">
 
-                  <li className="nav-item">
-                    <a
-                      className="d-flex m-2 py-2 rounded-pill"
-                      data-bs-toggle="pill"
-                      href="#tab-ca"
-                    >
-                      <span style={{ width: "120px" }}>Cá</span>
-                    </a>
-                  </li>
+                    <div className="seafood-menu-badge position-absolute top-0 start-0 m-3 px-3 py-1 rounded-pill">
+                      MENU
+                    </div>
 
-                  <li className="nav-item">
-                    <a
-                      className="d-flex m-2 py-2 rounded-pill"
-                      data-bs-toggle="pill"
-                      href="#tab-tep"
-                    >
-                      <span style={{ width: "120px" }}>Tép</span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
+                    <div className="seafood-menu-imgwrap">
+                      <img
+                        src={item.img}
+                        className="seafood-menu-img"
+                        alt={item.name}
+                      />
+                    </div>
 
-            {/* Tabs content */}
-            <div className="tab-content mt-5">
-              <div id="tab-all" className="tab-pane fade show p-0 active">
-                <div className="row g-4 justify-content-center">
-                  {renderProducts(allProducts)}
+                    <div className="p-4 text-start">
+                      <h5 className="mb-1 seafood-menu-name">{item.name}</h5>
+                      <div className="seafood-menu-subline">{item.sub}</div>
+
+                      <div className="seafood-menu-price d-inline-flex align-items-center gap-2 px-3 py-2 rounded-3">
+                        <span>🔥</span>
+                        <span>{item.price}</span>
+                      </div>
+
+                      <div className="seafood-menu-note mt-3">{item.note}</div>
+
+                      <div className="mt-4 d-flex align-items-center justify-content-between">
+                        <span className="seafood-menu-detail">
+                          Xem chi tiết →
+                        </span>
+                        <span
+                          className="seafood-menu-order px-3 py-2 rounded-3"
+                          onClick={(e) => {
+                            e.preventDefault(); // chặn NavLink redirect
+                            dispatch(addToCart(item));
+                          }}
+                        >
+                          Đặt ngay
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="seafood-menu-overlay position-absolute top-0 start-0 w-100 h-100" />
+                  </div>
                 </div>
               </div>
-
-              <div id="tab-tom" className="tab-pane fade show p-0">
-                <div className="row g-4 justify-content-center">
-                  {renderProducts(tom)}
-                </div>
-              </div>
-
-              <div id="tab-ca" className="tab-pane fade show p-0">
-                <div className="row g-4 justify-content-center">
-                  {renderProducts(ca)}
-                </div>
-              </div>
-
-              <div id="tab-tep" className="tab-pane fade show p-0">
-                <div className="row g-4 justify-content-center">
-                  {renderProducts(tep)}
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
