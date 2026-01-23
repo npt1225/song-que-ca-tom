@@ -288,6 +288,28 @@ export default function Navbar() {
   .seafood-topbar {
     border-radius: 0;
   }
+    .seafood-navbar .navbar-collapse {
+    background: #ffffff;
+    margin-top: 12px;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 14px 35px rgba(0, 119, 182, 0.18);
+    border: 1px solid rgba(0, 180, 216, 0.18);
+  }
+
+  /* Cho menu item full width đẹp hơn */
+  .seafood-navbar .navbar-nav .nav-link {
+    justify-content: center;
+    margin: 6px 0;
+  }
+
+  /* Dropdown menu trong mobile: không position absolute */
+  .seafood-navbar .dropdown-menu {
+    position: static !important;
+    box-shadow: none;
+    border: 1px solid rgba(0, 180, 216, 0.15);
+    margin-top: 8px;
+  }
 }
 `}
             </style>
