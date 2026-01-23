@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, EffectFade } from "swiper/modules";
 
 import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
