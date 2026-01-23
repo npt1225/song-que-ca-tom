@@ -1,32 +1,72 @@
+import {
+  saveCartToLocalStorage,
+  getCartFromLocalStorage
+} from "../../utils/cartStorage";
+
 const stateDefault = {
-    cartItems: [] // mảng giỏ hàng
+  cartItems: getCartFromLocalStorage()
 };
 
 export const CartReducer = (state = stateDefault, action) => {
-    switch (action.type) {
-        case 'ADD_TO_CART': {
-            const item = action.product;
+  let newCartItems;
 
-            // kiểm tra đã có trong giỏ chưa
-            const index = state.cartItems.findIndex(
-                p => p.id === item.id
-            );
+  switch (action.type) {
+    case "ADD_TO_CART": {
+      const product = action.payload;
 
-            if (index !== -1) {
-                // đã có → tăng số lượng
-                state.cartItems[index].quantity += 1;
-            } else {
-                // chưa có → thêm mới
-                state.cartItems.push({
-                    ...item,
-                    quantity: 1
-                });
-            }
+      const existItem = state.cartItems.find(
+        item => item.slug === product.slug
+      );
 
-            return { ...state };
-        }
+      if (existItem) {
+        newCartItems = state.cartItems.map(item =>
+          item.slug === product.slug
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        newCartItems = [
+          ...state.cartItems,
+          { ...product, quantity: 1 }
+        ];
+      }
 
-        default:
-            return state;
+      saveCartToLocalStorage(newCartItems);
+      return { ...state, cartItems: newCartItems };
     }
+
+    case "INCREASE_QUANTITY": {
+      newCartItems = state.cartItems.map(item =>
+        item.slug === action.payload
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+
+      saveCartToLocalStorage(newCartItems);
+      return { ...state, cartItems: newCartItems };
+    }
+
+    case "DECREASE_QUANTITY": {
+      newCartItems = state.cartItems.map(item =>
+        item.slug === action.payload && item.quantity > 1
+          ? { ...item, quantity: item.quantity - 1 }
+          : item
+      );
+
+      saveCartToLocalStorage(newCartItems);
+      return { ...state, cartItems: newCartItems };
+    }
+
+    case "REMOVE_FROM_CART": {
+      newCartItems = state.cartItems.filter(
+        item => item.slug !== action.payload
+      );
+
+      saveCartToLocalStorage(newCartItems);
+      return { ...state, cartItems: newCartItems };
+    }
+
+    default:
+      return state;
+  }
 };

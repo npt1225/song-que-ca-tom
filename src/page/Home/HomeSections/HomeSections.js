@@ -24,7 +24,7 @@ export default function HomeSections() {
                 </p>
 
                 <NavLink
-                  to="/shop"
+                  to="/products"
                   className="hero-btn btn rounded-pill py-3 px-5"
                 >
                   Xem sản phẩm
@@ -35,15 +35,15 @@ export default function HomeSections() {
             <div className="col-lg-6">
               <div className="hero-image position-relative">
                 <img
-                  src="img/baner-1.png"
+                  src="images/tom-cang-no.png"
                   className="img-fluid w-100 hero-img"
                   alt="Hải sản tươi sống"
                 />
 
                 <div className="hero-price position-absolute d-flex align-items-center justify-content-center">
                   <div className="text-center">
-                    <h2 className="mb-0">Tôm sú</h2>
-                    <span className="fw-bold">299k/kg</span>
+                    <h2 className="mb-0">Tôm càng xanh</h2>
+                    <span className="fw-bold">580/kg</span>
                   </div>
                 </div>
               </div>

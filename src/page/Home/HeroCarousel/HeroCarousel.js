@@ -42,17 +42,18 @@ export default function HeroCarousel() {
                 <div className="carousel-inner" role="listbox">
                   <div className="carousel-item active rounded">
                     <img
-                      src="img/hero-img-1.png"
-                      className="img-fluid w-100 h-100 hero-img bg-secondary rounded"
+                      src="./images/ro-phi-thai-no.png"
+                      className="img-fluid w-100 h-100 hero-img rounded"
                       alt="Cá tươi sống"
                     />
                     <NavLink
                       to="/ca-tuoi"
                       className="btn px-4 py-2 hero-pill text-white rounded position-absolute"
                       style={{
-                        bottom: "20px",
+                        bottom: "90px",
                         left: "50%",
                         transform: "translateX(-50%)",
+                        
                       }}
                     >
                       Cá Tươi
@@ -61,7 +62,7 @@ export default function HeroCarousel() {
 
                   <div className="carousel-item rounded">
                     <img
-                      src="img/hero-img-2.jpg"
+                      src="./images/tom-cang-no.png"
                       className="img-fluid w-100 h-100 hero-img rounded"
                       alt="Tôm tươi ngon"
                     />
@@ -69,7 +70,7 @@ export default function HeroCarousel() {
                       to="/tom-tuoi"
                       className="btn px-4 py-2 hero-pill text-white rounded position-absolute"
                       style={{
-                        bottom: "20px",
+                        bottom: "110px",
                         left: "50%",
                         transform: "translateX(-50%)",
                       }}

@@ -16,7 +16,7 @@ export default function Promotions() {
       badgeClass: "hot",
       name: "Tôm Càng Xanh",
       desc: "Giảm 20%",
-      img: "https://picsum.photos/600/400?random=1",
+      img: "./images/tom-cang-xanh.jpg",
       link: "/khuyen-mai/tom-cang-xanh",
     },
     {
@@ -24,7 +24,7 @@ export default function Promotions() {
       badgeClass: "sale",
       name: "Cá Ngát Tươi",
       desc: "Miễn phí vận chuyển",
-      img: "https://picsum.photos/600/400?random=2",
+      img: "./images/ca-ngat.jpg",
       link: "/khuyen-mai/ca-ngat",
     },
     {
@@ -32,15 +32,15 @@ export default function Promotions() {
       badgeClass: "new",
       name: "Cá Bống Tượng",
       desc: "Giảm 50.000đ",
-      img: "https://picsum.photos/600/400?random=3",
+      img: "./images/ca-bong-tuong.jpg",
       link: "/khuyen-mai/ca-bong-tuong",
     },
     {
       badge: "HOT",
       badgeClass: "hot",
-      name: "Tôm Sú Tươi",
+      name: "Tép bạc đất",
       desc: "Giảm 10%",
-      img: "https://picsum.photos/600/400?random=4",
+      img: "./images/tep-bac-dat.jpg",
       link: "/khuyen-mai/tom-su",
     },
   ];

@@ -1,50 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-const promoData = [
-  {
-    slug: "tom-cang-xanh",
-    name: "Tôm Càng Xanh",
-    sub: "Sông Hậu",
-    price: "580K / KG",
-    note: "Loại 8 con / 1kg",
-    img: "img/menu/tom-cang-xanh.jpg",
-  },
-  {
-    slug: "ca-ngat",
-    name: "Cá Ngát",
-    sub: "Sông Hậu",
-    price: "250K / KG",
-    note: "Cá từ 1.5kg trở lên",
-    img: "img/menu/ca-ngat.jpg",
-  },
-  {
-    slug: "tep-bac-dat",
-    name: "Tép Bạc Đất",
-    sub: "Tươi sống",
-    price: "250K / KG",
-    note: "Hàng mới mỗi ngày",
-    img: "img/menu/tep-bac-dat.jpg",
-  },
-  {
-    slug: "ca-ro-phi-thai",
-    name: "Cá Rô Phi Thái",
-    sub: "Cá nước ngọt",
-    price: "120K / KG",
-    note: "Cá từ 2.5kg trở lên",
-    img: "img/menu/ca-ro-phi-thai.jpg",
-  },
-  {
-    slug: "ca-bong-tuong",
-    name: "Cá Bống Tượng",
-    sub: "Cá nước ngọt",
-    price: "300K / KG",
-    note: "Cá từ 1.5kg đến 2kg",
-    img: "img/menu/ca-bong-tuong.jpg",
-  },
-];
+import Swal from "sweetalert2";
+import { layDanhSachProducts } from "../../../redux/actions/ProductsAction";
+import { addToCart } from "../../../redux/actions/cartAction";
+
 
 export default function Menu() {
+   const dispatch = useDispatch();
+
+  const { arrProducts } = useSelector(
+    (state) => state.ProductsReducer
+  );
+
+  useEffect(() => {
+    dispatch(layDanhSachProducts());
+  }, [dispatch]);
+
   return (
     <>
       {/* MENU Start */}
@@ -60,10 +33,9 @@ export default function Menu() {
 
           {/* Grid */}
           <div className="row g-4 justify-content-center">
-            {promoData.map((item, index) => (
+            {arrProducts.map((item, index) => (
               <div className="col-md-6 col-lg-4" key={index}>
-                <NavLink
-                  to={`/khuyen-mai/${item.slug}`}
+                <div
                   className="seafood-menu-link"
                 >
                   <div className="seafood-menu-card rounded-4 overflow-hidden position-relative">
@@ -100,16 +72,32 @@ export default function Menu() {
                           Xem chi tiết →
                         </span>
 
-                        <span className="seafood-menu-order px-3 py-2 rounded-3">
-                          Đặt ngay
-                        </span>
+                       <button
+                                                 type="button"
+                                                 className="seafood-menu-order px-3 py-2 rounded-3"
+                                                 onClick={() => {
+                                                   console.log("CLICK OK");
+                                                   dispatch(addToCart(item));
+                                                     Swal.fire({
+                             toast: true,
+                             position: "top-end",
+                             icon: "success",
+                             title: "Đã thêm vào giỏ hàng",
+                             showConfirmButton: false,
+                             timer: 1500,
+                             timerProgressBar: true
+                           });
+                                                 }}
+                                               >
+                                                 Đặt ngay
+                                               </button>
                       </div>
                     </div>
 
                     {/* Overlay */}
                     <div className="seafood-menu-overlay position-absolute top-0 start-0 w-100 h-100" />
                   </div>
-                </NavLink>
+                </div>
               </div>
             ))}
           </div>
@@ -120,6 +108,9 @@ export default function Menu() {
       {/* ✅ CSS đồng bộ xanh biển */}
       <style>
         {`
+        .seafood-menu-overlay {
+  pointer-events: none;
+}
           .seafood-menu-section{
             background: linear-gradient(180deg,#f8fdff,#ffffff);
           }

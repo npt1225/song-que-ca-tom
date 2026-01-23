@@ -16,7 +16,7 @@ import Footer from "../../components/Footer/Footer";
 export default function Home() {
     return (
         <div>
-            <Loader />
+            {/* <Loader /> */}
             <Navbar />
             <Search />
             <HeroCarousel />

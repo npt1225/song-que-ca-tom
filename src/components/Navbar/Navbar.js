@@ -6,12 +6,12 @@ export default function Navbar() {
   const cartItems = useSelector(
     state => state.CartReducer.cartItems
   );
+console.log(cartItems)
+const totalQuantity = cartItems.reduce(
+  (total, item) => total + item.quantity,
+  0
+);
 
-  // tổng số lượng
-  const totalQuantity = cartItems.reduce(
-    (total, item) => total + item.quantity,
-    0
-  );
   return (
     <div className="container-fluid fixed-top">
       {/* Topbar */}
@@ -42,8 +42,8 @@ export default function Navbar() {
       {/* Main Navbar */}
       <div className="container px-0">
         <nav className="navbar navbar-expand-xl seafood-navbar">
-          <NavLink to="/" className="navbar-brand">
-            <h1 className="display-6">Hải Sản Tươi</h1>
+          <NavLink exact to="/" className="navbar-brand">
+            <h1 className="display-6">Sông Quê</h1>
           </NavLink>
 
           <button
@@ -57,7 +57,7 @@ export default function Navbar() {
 
           <div className="collapse navbar-collapse" id="navbarCollapse">
             <div className="navbar-nav mx-auto">
-              <NavLink
+              <NavLink exact
                 to="/"
                 className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
                 end
@@ -66,13 +66,14 @@ export default function Navbar() {
               </NavLink>
 
               <NavLink
-                to="/gioi-thieu"
+              exact
+                to="/about"
                 className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
               >
                 Giới Thiệu
               </NavLink>
 
-              <div className="nav-item dropdown">
+              {/* <div className="nav-item dropdown">
                 <a className="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
                   Danh Mục
                 </a>
@@ -83,24 +84,26 @@ export default function Navbar() {
                   <NavLink to="/muc-tuoi" className="dropdown-item">Mực Tươi</NavLink>
                   <NavLink to="/hai-san-khac" className="dropdown-item">Hải Sản Khác</NavLink>
                 </div>
-              </div>
+              </div> */}
 
-              <NavLink
+              {/* <NavLink
                 to="/bai-viet"
                 className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
               >
                 Bài Viết
-              </NavLink>
+              </NavLink> */}
 
               <NavLink
-                to="/san-pham"
+              exact
+                to="/products"
                 className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
               >
                 Sản Phẩm
               </NavLink>
 
               <NavLink
-                to="/lien-he"
+              exact
+                to="/contact"
                 className={({ isActive }) => `nav-item nav-link ${isActive ? "active" : ""}`}
               >
                 Liên Hệ
@@ -118,6 +121,7 @@ export default function Navbar() {
 
               <NavLink to="/cart-page" className="position-relative me-4 my-auto">
                 <i className="fa fa-shopping-bag fa-2x"></i>
+
                 <span
                   className="position-absolute rounded-circle d-flex align-items-center justify-content-center px-1 bg-secondary"
                   style={{
@@ -131,9 +135,10 @@ export default function Navbar() {
                 </span>
               </NavLink>
 
-              <NavLink to="/tai-khoan" className="my-auto">
+
+              {/* <NavLink to="/tai-khoan" className="my-auto">
                 <i className="fas fa-user fa-2x"></i>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         </nav>

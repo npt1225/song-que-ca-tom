@@ -6,7 +6,7 @@ export const productsData = [
     desc: "Loại 8 con/kg - Tươi sống 100%, càng to, thịt săn chắc ngọt",
     price: "580K / KG",
     note: "Loại 8 con / 1kg",
-    img: "img/songque/tom-cang-xanh.jpg",
+    img: "./images/tom-cang-xanh.jpg",
     slug: "tom-cang-xanh",
   },
   {
@@ -16,7 +16,7 @@ export const productsData = [
     desc: "Từ 1.5kg trở lên - Thịt chắc, ngọt tự nhiên, đặc sản miền Tây",
     price: "250K / KG",
     note: "Cá từ 1.5kg trở lên",
-    img: "img/songque/ca-ngat.jpg",
+    img: "./images/ca-ngat.jpg",
     slug: "ca-ngat",
   },
   {
@@ -26,7 +26,7 @@ export const productsData = [
     desc: "Tép bạc đất chính gốc miền Tây, ngọt thanh, làm lẩu cực ngon",
     price: "250K / KG",
     note: "Hàng mới mỗi ngày",
-    img: "img/songque/tep-bac-dat.jpg",
+    img: "./images/tep-bac-dat.jpg",
     slug: "tep-bac-dat",
   },
   {
@@ -36,7 +36,7 @@ export const productsData = [
     desc: "Cá rô phi thái sạch sẽ, thịt trắng ngon, ít xương",
     price: "120K / KG",
     note: "Cá từ 2.5kg trở lên",
-    img: "img/songque/ca-ro-phi-thai.jpg",
+    img: "./images/ca-ro-phi-thai.jpg",
     slug: "ca-ro-phi-thai",
   },
   {
@@ -46,7 +46,7 @@ export const productsData = [
     desc: "Từ 1.5kg trở lên - Thịt dày, dai ngọt, đặc sản sông nước",
     price: "300K / KG",
     note: "Cá từ 1.5kg đến 2kg",
-    img: "img/songque/ca-bong-tuong.jpg",
+    img: "./images/ca-bong-tuong.jpg",
     slug: "ca-bong-tuong",
   },
 ];
