@@ -49,6 +49,17 @@ export default function CartPage() {
     });
   };
 
+  const bannerStyle = {
+  backgroundImage: "url('/images/banner.jpg')",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat",
+  minHeight: "260px", // 👈 chỉnh cao tại đây
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  marginTop:"10%"
+};
   return (
     <>
       <Loader />
@@ -56,10 +67,8 @@ export default function CartPage() {
       <Search />
 
       {/* Header */}
-      <div className="container-fluid page-header py-5">
-        <h1 className="text-center text-white display-6">
-          Giỏ hàng
-        </h1>
+      <div className="container-fluid py-5" style={bannerStyle}>
+       
       </div>
 
       {/* Cart */}
@@ -72,6 +81,9 @@ export default function CartPage() {
               <h4>🛒 Giỏ hàng đang trống</h4>
             </div>
           )}
+           <h1 className="text-center text-black display-6">
+          Giỏ hàng
+        </h1>
 
           {/* Table */}
           {cartItems.length > 0 && (
