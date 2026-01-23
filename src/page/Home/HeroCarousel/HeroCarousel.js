@@ -46,7 +46,7 @@ export default function HeroCarousel() {
                       className="img-fluid w-100 h-100 hero-img rounded"
                       alt="Cá tươi sống"
                     />
-                    <NavLink
+                    {/* <NavLink
                       to="/ca-tuoi"
                       className="btn px-4 py-2 hero-pill text-white rounded position-absolute"
                       style={{
@@ -57,7 +57,7 @@ export default function HeroCarousel() {
                       }}
                     >
                       Cá Tươi
-                    </NavLink>
+                    </NavLink> */}
                   </div>
 
                   <div className="carousel-item rounded">
@@ -66,7 +66,7 @@ export default function HeroCarousel() {
                       className="img-fluid w-100 h-100 hero-img rounded"
                       alt="Tôm tươi ngon"
                     />
-                    <NavLink
+                    {/* <NavLink
                       to="/tom-tuoi"
                       className="btn px-4 py-2 hero-pill text-white rounded position-absolute"
                       style={{
@@ -76,7 +76,7 @@ export default function HeroCarousel() {
                       }}
                     >
                       Tôm Tươi
-                    </NavLink>
+                    </NavLink> */}
                   </div>
                 </div>
 
